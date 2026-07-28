@@ -107,37 +107,45 @@
           </div>
         </div>
 
-        <div class="form-card" id="simpleServicesBlock">
-          <h3>Servicios o información principal</h3>
-          <p class="helper">Puedes escribir una lista sencilla. No tienes que redactarla de forma perfecta.</p>
-          <label>Servicios, áreas o secciones que deseas mostrar<textarea name="servicesList" rows="6" placeholder="Ej. Consulta inicial — $50 — breve descripción"></textarea></label>
-        </div>
-
-        <div class="form-card hidden" id="catalogBlock">
-          <div class="split-title"><div><h3>Elementos del catálogo</h3><p class="helper">Pueden ser productos, servicios, obras, piezas, tours, propiedades, cursos o cualquier otro elemento.</p></div><button type="button" id="addCatalogItem" class="btn small">+ Agregar elemento</button></div>
-          <label>¿Cómo llamas a los elementos de tu catálogo?<input name="catalogItemLabel" placeholder="Ej. obras, joyas, tratamientos, paquetes"></label>
+        <div class="form-card" id="offeringsBlock">
+          <div class="split-title"><div><h3>Servicios, productos o elementos que aparecerán en la web</h3><p class="helper">Agrega una tarjeta por cada servicio o producto. ESG Experience decidirá después si se muestra en carrusel, columnas, categorías u otra estructura.</p></div><button type="button" id="addCatalogItem" class="btn small">+ Agregar tarjeta</button></div>
+          <label>¿Cómo llamas a estos elementos?<input name="catalogItemLabel" placeholder="Ej. servicios, pantallas LED, pasteles, tratamientos, paquetes"></label>
           <div id="catalogItems"></div>
-          <p class="notice soft">Puedes enviar solo nombre, fotografía y precio, o incluso una lista general. Las categorías, descripciones y datos adicionales pueden quedar vacíos.</p>
+          <p class="notice soft"><strong>Ejemplo:</strong> Pantalla LED de 40 pulgadas. Añade el título oficial, descripción, qué incluye, precio y el nombre exacto que escribirás en la foto correspondiente.</p>
         </div>
 
         <div class="form-card">
-          <h3>Contenido adicional</h3>
-          <label>Testimonios, preguntas frecuentes, historia o información extra<textarea name="extraContent" rows="5"></textarea></label>
+          <h3>Contenido adicional de la página</h3>
+          <label>Banner principal: mensaje, promoción o llamada a la acción<textarea name="heroContent" rows="3" placeholder="Ej. Instalación profesional de pantallas LED para hogares y negocios. Solicita tu cotización por WhatsApp."></textarea></label>
+          <label>Banner promocional o anuncio especial (opcional)<textarea name="promoBanner" rows="3" placeholder="Ej. Instalación incluida durante este mes / Financiamiento disponible / Consulta gratuita."></textarea></label>
+          <label>Testimonios, preguntas frecuentes, historia u otra información<textarea name="extraContent" rows="5"></textarea></label>
         </div>
 
-        <div class="form-card">
-          <h3>Archivos</h3>
-          <p class="helper">Sube archivos originales. Evita capturas de pantalla o imágenes descargadas desde WhatsApp. Para conservar la calidad, al final adjunta los archivos originales directamente en el chat de WhatsApp.</p>
-          <label class="dropzone">Logo, fotografías, videos, PDF, listas de precios o documentos<input id="attachments" type="file" name="attachments" multiple accept="image/*,video/*,.pdf,.doc,.docx,.xls,.xlsx,.csv,.zip"><span>Seleccionar archivos</span><small id="fileList">Ningún archivo seleccionado</small></label>
+        <div class="form-card materials-card">
+          <h3>Materiales que debes enviar por WhatsApp</h3>
+          <p class="helper">El portal no sube archivos. Al finalizar, descarga el Excel y adjunta en WhatsApp todo lo que tengas de esta lista.</p>
+          <div class="materials-grid">
+            <label><input type="checkbox" name="materialChecklist" value="Logo oficial en PNG transparente o archivo vectorial"><span>Logo oficial en PNG transparente, SVG, PDF o AI.</span></label>
+            <label><input type="checkbox" name="materialChecklist" value="Fotos originales de cada servicio o producto"><span>Fotos originales de cada servicio o producto, identificadas con el mismo título usado en su tarjeta.</span></label>
+            <label><input type="checkbox" name="materialChecklist" value="Colores, tipografías y manual de marca"><span>Colores, tipografías o manual de marca, si existen.</span></label>
+            <label><input type="checkbox" name="materialChecklist" value="Lista de precios, PDFs o documentos oficiales"><span>Lista de precios, PDFs, menús, catálogos o documentos oficiales.</span></label>
+            <label><input type="checkbox" name="materialChecklist" value="Datos oficiales de contacto y redes"><span>Datos oficiales de contacto, redes sociales, dirección y horarios.</span></label>
+            <label><input type="checkbox" name="materialChecklist" value="Testimonios o reseñas autorizadas"><span>Testimonios o reseñas autorizadas para publicar.</span></label>
+            <label><input type="checkbox" name="materialChecklist" value="Links o imágenes de páginas de referencia"><span>Links o imágenes de páginas de referencia que te gusten.</span></label>
+            <label><input type="checkbox" name="materialChecklist" value="Videos originales disponibles"><span>Videos originales, si deseas incorporarlos.</span></label>
+          </div>
+          <label>Links de referencia para la página (uno por línea)<textarea name="referenceLinks" rows="4" placeholder="https://ejemplo.com
+https://instagram.com/ejemplo"></textarea></label>
+          <label>Notas sobre las referencias o archivos que enviarás<textarea name="materialsNotes" rows="3" placeholder="Ej. La foto llamada Pantalla-LED-40.jpg corresponde a la tarjeta Pantalla LED de 40 pulgadas."></textarea></label>
         </div>
 
         <div class="actions"><button type="button" class="btn ghost prev">Volver</button><button type="button" class="btn primary next">Revisar y enviar</button></div>
       </section>
 
       <section class="step" data-step="4">
-        <div class="section-head"><span>04</span><div><p class="eyebrow">REVISIÓN FINAL</p><h2>Tu proyecto está listo para enviarse</h2><p>El portal descargará tu Excel y abrirá el WhatsApp de ESG Experience con el mensaje preparado. Allí adjuntarás el Excel, las fotografías y los documentos originales.</p></div></div>
+        <div class="section-head"><span>04</span><div><p class="eyebrow">REVISIÓN FINAL</p><h2>Tu proyecto está listo para enviarse</h2><p>El portal descargará tu Excel y abrirá el WhatsApp de ESG Experience. En el chat deberás adjuntar el Excel, las fotos identificadas, el logo, documentos oficiales y referencias disponibles.</p></div></div>
         <div id="finalSummary" class="summary-card"></div>
-        <label class="acceptance"><input type="checkbox" id="dataConsent" required><span>Autorizo a ESG Experience a revisar y utilizar la información y los archivos enviados exclusivamente para evaluar y desarrollar este proyecto.</span></label>
+        <label class="acceptance"><input type="checkbox" id="dataConsent" required><span>Autorizo a ESG Experience a revisar y utilizar la información que completaré en el Excel y los materiales que enviaré por WhatsApp exclusivamente para evaluar y desarrollar este proyecto.</span></label>
         <div id="submitMessage" class="notice hidden"></div>
         <div class="actions"><button type="button" class="btn ghost prev">Volver</button><button type="submit" id="submitBtn" class="btn primary">Descargar Excel y abrir WhatsApp</button></div>
       </section>

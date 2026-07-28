@@ -1,20 +1,13 @@
-# ESG Experience Client Portal v2.0 — WhatsApp Final
+# ESG Experience Client Portal — WhatsApp Final Corrected
 
-Portal estático listo para GitHub y Vercel.
+Portal estático listo para GitHub/Vercel.
 
 ## Flujo
 1. Cotización estimada.
-2. Formulario del proyecto.
-3. Selección de materiales.
-4. Generación y descarga automática del Excel.
-5. Apertura de WhatsApp de ESG Experience con el mensaje prellenado.
-6. El cliente adjunta manualmente el Excel y sus archivos originales en WhatsApp.
+2. Datos del negocio.
+3. Una tarjeta estructurada por cada servicio, producto o elemento.
+4. Excel editable con cotización, negocio, tarjetas y checklist.
+5. WhatsApp prellenado con instrucciones para adjuntar el Excel, logo, fotos identificadas, documentos y referencias.
 
-## Publicación
-Sube todos los archivos y carpetas de este proyecto a la raíz del repositorio y despliega en Vercel. No requiere API, proveedor de correo ni variables de entorno.
-
-## WhatsApp configurado
-+1 786 303 2835
-
-## Nota técnica
-Por seguridad, una página web no puede insertar automáticamente archivos dentro de un chat de WhatsApp. El portal descarga el Excel y prepara el chat; el cliente confirma y adjunta los archivos.
+## Importante
+El portal no intenta subir ni transferir archivos. El cliente adjunta manualmente en WhatsApp los materiales originales, ya que WhatsApp no permite que una web los agregue automáticamente.
