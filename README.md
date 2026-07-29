@@ -1,17 +1,26 @@
-# ESG Experience Client Portal v2.2
+# ESG Experience Client Portal v2.3 · Sistema Maestro
 
-Versión final corregida con Formulario Maestro y cierre por WhatsApp.
+## Archivos principales
 
-## Flujo
-1. Cotización inicial.
-2. Confirmación.
-3. Formulario completo del negocio.
-4. Fichas individuales para cada servicio, producto o elemento.
-5. Excel maestro editable con estructura inspirada en Jlias Shop.
-6. Apertura de WhatsApp con checklist de archivos que el cliente debe adjuntar.
+- `index.html`: portal para el cliente.
+- `data/esg-config.json`: precios, módulos, WhatsApp y reglas de cotización.
+- `data/formulario.json`: campos del negocio y campos repetibles de cada ficha.
+- `admin/ESG_Experience_Excel_Maestro_Portal_v2.3.xlsx`: Excel interno con exactamente dos hojas.
+- `tools/actualizar-json-desde-excel.html`: convierte el Excel maestro en los dos JSON.
 
-## Importante
-- El portal no intenta subir ni adjuntar fotos.
-- El cliente debe adjuntar en WhatsApp el Excel descargado, logo, fotos identificadas, precios, documentos y referencias.
-- No requiere correo, API ni variables de entorno.
-- Listo para Vercel: `index.html` está en la raíz.
+## Flujo de actualización interno
+
+1. Abre el Excel de la carpeta `admin`.
+2. En `ESG_CONFIG`, cambia precios, módulos, WhatsApp o nombres.
+3. En `FORMULARIO`, cambia etiquetas, activa/desactiva campos o agrega nuevas filas.
+4. Guarda el Excel.
+5. Abre `tools/actualizar-json-desde-excel.html` en el navegador.
+6. Selecciona el Excel actualizado y descarga los dos JSON.
+7. Reemplaza los archivos de la carpeta `data`.
+8. Publica nuevamente en Vercel.
+
+La estructura visual de la web no necesita modificarse para estos cambios.
+
+## Descarga móvil
+
+En Android, el Excel del cliente se guarda normalmente en `Descargas`. En iPhone, suele encontrarse en `Archivos > Descargas` o `iCloud Drive > Downloads`. WhatsApp se abre con una lista explícita de los materiales que el cliente debe adjuntar manualmente.

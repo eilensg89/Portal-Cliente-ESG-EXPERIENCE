@@ -1,13 +1,13 @@
-export const MODULES = [
-  {id:'infrastructure',name:'Infraestructura propia',price:50,description:'GitHub y Vercel del cliente, dominio, DNS, HTTPS y publicación. El dominio no está incluido.'},
-  {id:'analytics',name:'Google Analytics + Search Console + Indexación',price:50,description:'GA4, Search Console, sitemap, robots.txt, indexación inicial y eventos básicos.'},
-  {id:'booking',name:'Reservas',price:50,description:'Calendly, Square Appointments, Google Calendar u otros compatibles.'},
-  {id:'bilingual',name:'Sitio bilingüe',price:25,description:'Estructura y navegación para dos idiomas.'},
-  {id:'seo',name:'SEO profesional',price:100,description:'Optimización profesional de contenido y estructura.'},
-  {id:'googleBusiness',name:'Google Business Profile',price:100,description:'Configuración u optimización de la presencia local en Google.'},
-  {id:'professionalForm',name:'Formulario profesional',price:100,description:'Formulario ampliado según las necesidades del negocio.'},
-  {id:'payments',name:'Integración de pagos',price:100,description:'Stripe, Square o PayPal. No incluye comisiones del procesador.'}
-];
-export const PROJECTS={informativa:{name:'Web Informativa',price:150},catalogo:{name:'Web con Catálogo Inteligente',price:350}};
-export const WHATSAPP_NUMBER='17863032835';
-export const WHATSAPP_DISPLAY='+1 786 303 2835';
+const [cfgResponse, formResponse] = await Promise.all([
+  fetch('./data/esg-config.json', {cache:'no-store'}),
+  fetch('./data/formulario.json', {cache:'no-store'})
+]);
+if (!cfgResponse.ok || !formResponse.ok) throw new Error('No se pudo cargar la configuración maestra.');
+export const SYSTEM_CONFIG = await cfgResponse.json();
+export const FORM_SCHEMA = await formResponse.json();
+export const MODULES = SYSTEM_CONFIG.modulos.map(m=>({id:m.id,name:m.nombre,price:Number(m.precio)||0,description:m.descripcion||''}));
+export const PROJECTS = Object.fromEntries(Object.entries(SYSTEM_CONFIG.proyectos).map(([id,p])=>[id,{name:p.nombre,price:Number(p.precio)||0,description:p.descripcion||''}]));
+export const WHATSAPP_NUMBER = SYSTEM_CONFIG.whatsapp.numero;
+export const WHATSAPP_DISPLAY = SYSTEM_CONFIG.whatsapp.visible;
+export const WEBCARE_PRICE = Number(SYSTEM_CONFIG.webcare.precioMensual)||0;
+export const CATALOG_REFERENCE = SYSTEM_CONFIG.catalogo;
