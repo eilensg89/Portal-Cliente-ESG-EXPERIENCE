@@ -3,157 +3,62 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <meta name="description" content="Portal de cotización y recopilación de información de ESG Experience" />
-  <title>ESG Experience | Portal de Inicio de Proyecto</title>
+  <meta name="description" content="Portal maestro de información para proyectos web de ESG Experience" />
+  <title>ESG Experience | Formulario Maestro de Proyecto</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-  <header class="topbar">
-    <a class="brand" href="#" aria-label="ESG Experience"><img src="assets/branding/esg-experience-logo-transparent.png" alt="Logo oficial ESG Experience"><span><strong>ESG EXPERIENCE™</strong><small>Portal de Inicio de Proyecto</small></span></a>
-    <div class="progress-wrap"><span id="progressLabel">Paso 1 de 4</span><div class="progress"><i id="progressBar"></i></div></div>
-  </header>
-
-  <main class="shell">
-    <section class="hero branded-hero"><img class="hero-seal" src="assets/branding/esg-experience-seal.png" alt="Sello ESG Experience" aria-hidden="true">
-      <p class="eyebrow">ESG EXPERIENCE™ · CONFIGURA · REVISA · ENTREGA</p>
-      <h1>Tu proyecto empieza con una dirección clara.</h1>
-      <p>Configura lo que necesitas, revisa tu inversión estimada y comparte únicamente la información que ya tienes. ESG Experience organiza, estructura y desarrolla el resto contigo.</p><p class="brand-line">La IA puede generar todo, menos tu marca.</p>
-    </section>
-
-    <form id="portalForm" novalidate>
-      <section class="step active" data-step="1">
-        <div class="section-head"><span>01</span><div><p class="eyebrow">CALCULADORA INTELIGENTE</p><h2>Elige la estructura principal</h2><p>Selecciona solo lo que necesitas. El total se actualiza automáticamente.</p></div></div>
-        <div class="choice-grid project-grid">
-          <label class="choice-card">
-            <input type="radio" name="projectType" value="informativa" data-price="150" required>
-            <span class="choice-check"></span><span class="tag">WEB INFORMATIVA</span>
-            <h3>Presencia profesional y directa</h3><p>Información de la empresa, servicios, galería, contacto y botones de WhatsApp en una experiencia lineal.</p><strong>$150</strong>
-          </label>
-          <label class="choice-card">
-            <input type="radio" name="projectType" value="catalogo" data-price="350" required>
-            <span class="choice-check"></span><span class="tag">CATÁLOGO INTELIGENTE</span>
-            <h3>Navegación por categorías y fichas</h3><p>Para productos, servicios, obras, joyas, juguetes, propiedades, tratamientos, experiencias o cualquier colección.</p><strong>Desde $350</strong>
-          </label>
-        </div>
-
-        <div id="catalogQuestions" class="panel hidden">
-          <h3>Dimensión aproximada del catálogo</h3>
-          <div class="fields two">
-            <label>¿Cuántos elementos deseas mostrar?<input type="number" min="0" name="catalogItems" placeholder="Ej. 25"></label>
-            <label>¿Cuántas categorías imaginas?<input type="number" min="0" name="catalogCategories" placeholder="Ej. 5"></label>
-          </div>
-          <p id="catalogWarning" class="notice warning hidden">Este proyecto requiere una evaluación personalizada antes de confirmar el precio final.</p>
-        </div>
-
-        <div class="section-head compact"><span>+</span><div><p class="eyebrow">MÓDULOS ADICIONALES</p><h2>Personaliza tu proyecto</h2></div></div>
-        <div id="modulesGrid" class="module-grid"></div>
-
-        <label class="webcare-card">
-          <input type="checkbox" name="webcare" value="25"><span class="choice-check"></span>
-          <div><p class="eyebrow">MANTENIMIENTO OPCIONAL</p><h3>ESG WebCare</h3><p>Soporte y mantenimiento recurrente. Se muestra aparte y no se suma a la inversión inicial.</p></div><strong>$25<small>/mes</small></strong>
-        </label>
-
-        <aside class="live-total" aria-live="polite"><div><small>INVERSIÓN INICIAL ESTIMADA</small><strong id="liveTotal">$0</strong></div><div><small>COSTO MENSUAL</small><strong id="monthlyTotal">$0</strong></div></aside>
-        <div class="actions"><span></span><button type="button" class="btn primary next">Revisar mi cotización</button></div>
-      </section>
-
-      <section class="step" data-step="2">
-        <div class="section-head"><span>02</span><div><p class="eyebrow">RESUMEN DE COTIZACIÓN</p><h2>Revisa tu selección</h2><p>Este resumen acompañará la información de tu negocio.</p></div></div>
-        <div id="quoteSummary" class="summary-card"></div>
-        <p class="notice">Esta cotización es una estimación basada en la información proporcionada. Algunos proyectos pueden requerir una evaluación adicional antes de confirmar el precio final.</p>
-        <label class="acceptance"><input type="checkbox" id="quoteAccepted"><span>Confirmo que revisé esta cotización estimada y deseo continuar. Entiendo que el precio definitivo será confirmado después de que ESG Experience revise el alcance y los materiales proporcionados.</span></label>
-        <div class="actions"><button type="button" class="btn ghost prev">Volver</button><button type="button" id="acceptQuote" class="btn primary" disabled>Continuar con la información de mi negocio</button></div>
-      </section>
-
-      <section class="step" data-step="3">
-        <div class="section-head"><span>03</span><div><p class="eyebrow">INFORMACIÓN DEL NEGOCIO</p><h2>Comparte únicamente lo que ya tengas</h2><p>Los campos marcados con “opcional” pueden quedar vacíos. ESG Experience puede ayudarte a organizar categorías, nombres, descripciones y estructura.</p></div></div>
-
-        <div class="form-card">
-          <h3>Contacto principal</h3>
-          <div class="fields two">
-            <label>Nombre completo *<input name="clientName" required autocomplete="name"></label>
-            <label>Correo (opcional)<input type="email" name="clientEmail" autocomplete="email"></label>
-            <label>Teléfono o WhatsApp *<input name="clientPhone" required autocomplete="tel"></label>
-            <label>Nombre del negocio *<input name="businessName" required></label>
-          </div>
-        </div>
-
-        <div class="form-card">
-          <h3>Esencia del negocio</h3>
-          <div class="fields two">
-            <label>Tipo de negocio<input name="businessType" placeholder="Ej. joyería, galería, consultoría, spa"></label>
-            <label>Ciudad o zona de servicio<input name="serviceArea"></label>
-          </div>
-          <label>Cuéntanos brevemente qué hace el negocio<textarea name="businessDescription" rows="4" placeholder="Puedes escribirlo con tus propias palabras."></textarea></label>
-          <label>Objetivo principal de la web<textarea name="websiteGoal" rows="3" placeholder="Ej. presentar servicios, recibir consultas, mostrar una colección..."></textarea></label>
-          <div class="fields two">
-            <label>Instagram<input name="instagram" placeholder="@usuario o enlace"></label>
-            <label>Facebook / TikTok / otras redes<input name="socialOther"></label>
-            <label>Dirección<input name="address"></label>
-            <label>Horario<input name="hours"></label>
-          </div>
-        </div>
-
-        <div class="form-card">
-          <h3>Identidad visual</h3>
-          <div class="fields two">
-            <label>¿Tienes logo?<select name="hasLogo"><option value="">Selecciona</option><option>Sí</option><option>No</option><option>Necesito ayuda</option></select></label>
-            <label>Colores de marca (opcional)<input name="brandColors"></label>
-            <label>Estilo deseado (opcional)<input name="desiredStyle" placeholder="Ej. elegante, moderno, cálido"></label>
-            <label>Webs o marcas de referencia (opcional)<input name="references"></label>
-          </div>
-        </div>
-
-        <div class="form-card" id="offeringsBlock">
-          <div class="split-title"><div><h3>Servicios, productos o elementos que aparecerán en la web</h3><p class="helper">Agrega una tarjeta por cada servicio o producto. ESG Experience decidirá después si se muestra en carrusel, columnas, categorías u otra estructura.</p></div><button type="button" id="addCatalogItem" class="btn small">+ Agregar tarjeta</button></div>
-          <label>¿Cómo llamas a estos elementos?<input name="catalogItemLabel" placeholder="Ej. servicios, pantallas LED, pasteles, tratamientos, paquetes"></label>
-          <div id="catalogItems"></div>
-          <p class="notice soft"><strong>Ejemplo:</strong> Pantalla LED de 40 pulgadas. Añade el título oficial, descripción, qué incluye, precio y el nombre exacto que escribirás en la foto correspondiente.</p>
-        </div>
-
-        <div class="form-card">
-          <h3>Contenido adicional de la página</h3>
-          <label>Banner principal: mensaje, promoción o llamada a la acción<textarea name="heroContent" rows="3" placeholder="Ej. Instalación profesional de pantallas LED para hogares y negocios. Solicita tu cotización por WhatsApp."></textarea></label>
-          <label>Banner promocional o anuncio especial (opcional)<textarea name="promoBanner" rows="3" placeholder="Ej. Instalación incluida durante este mes / Financiamiento disponible / Consulta gratuita."></textarea></label>
-          <label>Testimonios, preguntas frecuentes, historia u otra información<textarea name="extraContent" rows="5"></textarea></label>
-        </div>
-
-        <div class="form-card materials-card">
-          <h3>Materiales que debes enviar por WhatsApp</h3>
-          <p class="helper">El portal no sube archivos. Al finalizar, descarga el Excel y adjunta en WhatsApp todo lo que tengas de esta lista.</p>
-          <div class="materials-grid">
-            <label><input type="checkbox" name="materialChecklist" value="Logo oficial en PNG transparente o archivo vectorial"><span>Logo oficial en PNG transparente, SVG, PDF o AI.</span></label>
-            <label><input type="checkbox" name="materialChecklist" value="Fotos originales de cada servicio o producto"><span>Fotos originales de cada servicio o producto, identificadas con el mismo título usado en su tarjeta.</span></label>
-            <label><input type="checkbox" name="materialChecklist" value="Colores, tipografías y manual de marca"><span>Colores, tipografías o manual de marca, si existen.</span></label>
-            <label><input type="checkbox" name="materialChecklist" value="Lista de precios, PDFs o documentos oficiales"><span>Lista de precios, PDFs, menús, catálogos o documentos oficiales.</span></label>
-            <label><input type="checkbox" name="materialChecklist" value="Datos oficiales de contacto y redes"><span>Datos oficiales de contacto, redes sociales, dirección y horarios.</span></label>
-            <label><input type="checkbox" name="materialChecklist" value="Testimonios o reseñas autorizadas"><span>Testimonios o reseñas autorizadas para publicar.</span></label>
-            <label><input type="checkbox" name="materialChecklist" value="Links o imágenes de páginas de referencia"><span>Links o imágenes de páginas de referencia que te gusten.</span></label>
-            <label><input type="checkbox" name="materialChecklist" value="Videos originales disponibles"><span>Videos originales, si deseas incorporarlos.</span></label>
-          </div>
-          <label>Links de referencia para la página (uno por línea)<textarea name="referenceLinks" rows="4" placeholder="https://ejemplo.com
-https://instagram.com/ejemplo"></textarea></label>
-          <label>Notas sobre las referencias o archivos que enviarás<textarea name="materialsNotes" rows="3" placeholder="Ej. La foto llamada Pantalla-LED-40.jpg corresponde a la tarjeta Pantalla LED de 40 pulgadas."></textarea></label>
-        </div>
-
-        <div class="actions"><button type="button" class="btn ghost prev">Volver</button><button type="button" class="btn primary next">Revisar y enviar</button></div>
-      </section>
-
-      <section class="step" data-step="4">
-        <div class="section-head"><span>04</span><div><p class="eyebrow">REVISIÓN FINAL</p><h2>Tu proyecto está listo para enviarse</h2><p>El portal descargará tu Excel y abrirá el WhatsApp de ESG Experience. En el chat deberás adjuntar el Excel, las fotos identificadas, el logo, documentos oficiales y referencias disponibles.</p></div></div>
-        <div id="finalSummary" class="summary-card"></div>
-        <label class="acceptance"><input type="checkbox" id="dataConsent" required><span>Autorizo a ESG Experience a revisar y utilizar la información que completaré en el Excel y los materiales que enviaré por WhatsApp exclusivamente para evaluar y desarrollar este proyecto.</span></label>
-        <div id="submitMessage" class="notice hidden"></div>
-        <div class="actions"><button type="button" class="btn ghost prev">Volver</button><button type="submit" id="submitBtn" class="btn primary">Descargar Excel y abrir WhatsApp</button></div>
-      </section>
-    </form>
-  </main>
-
-  <footer><img src="assets/branding/esg-experience-logo-transparent.png" alt="ESG Experience"><p>ESG Experience™ · Dirección, estructura y presencia digital.</p><a href="https://wa.me/17863032835" target="_blank" rel="noopener">WhatsApp +1 786 303 2835</a></footer>
-  <script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
-  <script type="module" src="js/app.js"></script>
-</body>
-</html>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="ESG Experience"><img src="assets/branding/esg-experience-logo-transparent.png" alt="Logo oficial ESG Experience"><span><strong>ESG EXPERIENCE™</strong><small>Formulario Maestro de Proyecto</small></span></a>
+  <div class="progress-wrap"><span id="progressLabel">Paso 1 de 4</span><div class="progress"><i id="progressBar"></i></div></div>
+</header>
+<main class="shell">
+<section class="hero branded-hero"><img class="hero-seal" src="assets/branding/esg-experience-seal.png" alt="Sello ESG Experience" aria-hidden="true"><p class="eyebrow">ESG EXPERIENCE™ · INFORMACIÓN REAL · ESTRUCTURA CLARA</p><h1>Completa la información que hará posible tu web.</h1><p>Este formulario convierte los datos reales de tu negocio en un Excel maestro editable. Escribe la información oficial tal como deseas que aparezca y agrega una ficha por cada servicio, producto o elemento que quieras mostrar.</p><p class="brand-line">Completa lo que sabes. ESG estructura lo demás.</p></section>
+<form id="portalForm" novalidate>
+<section class="step active" data-step="1">
+  <div class="section-head"><span>01</span><div><p class="eyebrow">COTIZACIÓN INICIAL</p><h2>Selecciona la arquitectura</h2><p>La arquitectura define el alcance inicial, no limita cómo mostraremos tus servicios o productos.</p></div></div>
+  <div class="choice-grid project-grid">
+    <label class="choice-card"><input type="radio" name="projectType" value="informativa" data-price="150" required><span class="choice-check"></span><span class="tag">WEB INFORMATIVA</span><h3>Información, servicios y contacto</h3><p>Puede incluir múltiples tarjetas de servicios o productos, banners, testimonios, preguntas frecuentes y contacto por WhatsApp.</p><strong>$150</strong></label>
+    <label class="choice-card"><input type="radio" name="projectType" value="catalogo" data-price="350" required><span class="choice-check"></span><span class="tag">WEB CATÁLOGO</span><h3>Categorías, elementos y fichas</h3><p>Para colecciones que requieren categorías, subcategorías, filtros o más cantidad de elementos.</p><strong>Desde $350</strong></label>
+  </div>
+  <div id="catalogQuestions" class="panel hidden"><h3>Dimensión aproximada</h3><div class="fields two"><label>¿Cuántos elementos deseas mostrar?<input type="number" min="0" name="catalogItems" placeholder="Ej. 25"></label><label>¿Cuántas categorías imaginas?<input type="number" min="0" name="catalogCategories" placeholder="Ej. 5"></label></div><p id="catalogWarning" class="notice warning hidden">Este proyecto requiere evaluación personalizada antes de confirmar el precio final.</p></div>
+  <div class="section-head compact"><span>+</span><div><p class="eyebrow">MÓDULOS ADICIONALES</p><h2>Personaliza el proyecto</h2></div></div><div id="modulesGrid" class="module-grid"></div>
+  <label class="webcare-card"><input type="checkbox" name="webcare" value="25"><span class="choice-check"></span><div><p class="eyebrow">MANTENIMIENTO OPCIONAL</p><h3>ESG WebCare</h3><p>Soporte y mantenimiento recurrente. Se calcula aparte.</p></div><strong>$25<small>/mes</small></strong></label>
+  <aside class="live-total"><div><small>INVERSIÓN INICIAL ESTIMADA</small><strong id="liveTotal">$0</strong></div><div><small>COSTO MENSUAL</small><strong id="monthlyTotal">$0</strong></div></aside>
+  <div class="actions"><span></span><button type="button" class="btn primary next">Revisar cotización</button></div>
+</section>
+<section class="step" data-step="2">
+  <div class="section-head"><span>02</span><div><p class="eyebrow">RESUMEN</p><h2>Revisa tu selección</h2><p>El precio definitivo se confirma al revisar la información y los materiales.</p></div></div><div id="quoteSummary" class="summary-card"></div><p class="notice">Esta es una estimación inicial. El alcance final puede cambiar según cantidad de contenido, integraciones, idiomas y materiales.</p><label class="acceptance"><input type="checkbox" id="quoteAccepted"><span>Confirmo que revisé la cotización estimada y deseo continuar con el formulario maestro.</span></label><div class="actions"><button type="button" class="btn ghost prev">Volver</button><button type="button" id="acceptQuote" class="btn primary" disabled>Completar información</button></div>
+</section>
+<section class="step" data-step="3">
+  <div class="section-head"><span>03</span><div><p class="eyebrow">FORMULARIO MAESTRO</p><h2>Datos oficiales del negocio</h2><p>Escribe cada dato como debe aparecer públicamente. Los campos con * son necesarios para generar un Excel útil.</p></div></div>
+  <div class="form-card"><h3>Responsable y contacto</h3><div class="fields two">
+    <label>Nombre completo del responsable *<input name="clientName" required autocomplete="name"></label><label>Correo de contacto<input type="email" name="clientEmail" autocomplete="email"></label>
+    <label>WhatsApp principal con código de país *<input name="clientPhone" required autocomplete="tel" placeholder="Ej. +1 786 000 0000"></label><label>WhatsApp visible al público<input name="publicWhatsapp" placeholder="Si es diferente"></label>
+  </div></div>
+  <div class="form-card"><h3>Marca y presentación</h3><div class="fields two">
+    <label>Nombre público del negocio *<input name="businessName" required></label><label>Eslogan o lema<input name="tagline" placeholder="Ej. Tecnología que transforma espacios"></label>
+    <label>Tipo de negocio *<input name="businessType" required placeholder="Ej. instalación de pantallas LED"></label><label>Moneda que utiliza<input name="currency" value="$" placeholder="$"></label>
+    <label>Ciudad / sede principal<input name="city"></label><label>Área o ciudades donde ofrece servicio<input name="serviceArea"></label>
+  </div><label>Descripción oficial del negocio *<textarea name="businessDescription" required rows="5" placeholder="Qué hace, a quién ayuda, qué lo diferencia y qué experiencia ofrece."></textarea></label><label>Objetivo principal de la web *<textarea name="websiteGoal" required rows="3" placeholder="Ej. presentar soluciones, mostrar tipos de pantallas y recibir cotizaciones por WhatsApp."></textarea></label><label>Historia breve o texto “Sobre nosotros”<textarea name="aboutText" rows="4"></textarea></label><label>Diferenciadores principales<textarea name="differentiators" rows="4" placeholder="Uno por línea. Ej. instalación profesional, soporte técnico, soluciones a medida."></textarea></label></div>
+  <div class="form-card"><h3>Contacto público y presencia digital</h3><div class="fields two">
+    <label>Instagram<input name="instagram" placeholder="Enlace completo o @usuario"></label><label>Facebook<input name="facebook"></label><label>TikTok<input name="tiktok"></label><label>Canal o grupo de WhatsApp<input name="whatsappChannel"></label><label>Sitio web actual<input name="currentWebsite"></label><label>Correo público<input name="publicEmail"></label><label>Dirección física<input name="address"></label><label>Horario de atención<input name="hours"></label>
+  </div></div>
+  <div class="form-card"><h3>Identidad visual</h3><div class="fields two"><label>¿Tiene logo?<select name="hasLogo"><option value="">Selecciona</option><option>Sí, listo para enviar</option><option>No</option><option>Necesito ayuda</option></select></label><label>Nombre exacto del archivo del logo<input name="logoFileName" placeholder="Ej. logo-empresa.png"></label><label>Colores oficiales<input name="brandColors" placeholder="Ej. azul #123456, blanco, gris"></label><label>Tipografías oficiales<input name="brandFonts"></label><label>Estilo visual deseado<input name="desiredStyle" placeholder="Ej. tecnológico, premium, limpio, industrial"></label><label>Elementos que NO desea ver<input name="avoidStyle" placeholder="Ej. fondos negros, colores neón, exceso de animaciones"></label></div><label>Links o marcas de referencia<textarea name="references" rows="4" placeholder="Un enlace por línea. También puedes enviar imágenes de referencia por WhatsApp."></textarea></label></div>
+  <div class="form-card"><h3>Contenido principal de la página</h3><label>Título principal del banner *<input name="heroTitle" required placeholder="Ej. Pantallas LED profesionales para hogares y negocios"></label><label>Texto de apoyo del banner<textarea name="heroText" rows="3"></textarea></label><div class="fields two"><label>Texto del botón principal<input name="heroButton" placeholder="Ej. Solicitar cotización"></label><label>Destino del botón<select name="heroButtonDestination"><option>WhatsApp</option><option>Sección de servicios</option><option>Formulario</option><option>Otro enlace</option></select></label></div><label>Banner promocional o anuncio especial<textarea name="promoBanner" rows="3" placeholder="Promoción, financiamiento, instalación incluida, novedad o aviso importante."></textarea></label><div class="fields two"><label>Texto del botón promocional<input name="promoButton"></label><label>Destino del botón promocional<input name="promoDestination"></label></div></div>
+  <div class="form-card" id="offeringsBlock"><div class="split-title"><div><h3>Servicios, productos o elementos de la web</h3><p class="helper">Crea una ficha por cada elemento. No agrupes varios servicios en una sola descripción.</p></div><button type="button" id="addCatalogItem" class="btn small">+ Agregar ficha</button></div><label>Nombre público de esta sección *<input name="catalogItemLabel" required placeholder="Ej. Servicios, Pantallas LED, Pasteles, Tratamientos"></label><div id="catalogItems"></div><p class="notice soft"><strong>Ejemplo:</strong> “Pantalla LED de 40 pulgadas” debe tener su propia ficha, precio, descripción, especificaciones y nombres de fotos.</p></div>
+  <div class="form-card"><h3>Prueba social e información de confianza</h3><label>Testimonios o reseñas autorizadas<textarea name="testimonials" rows="5" placeholder="Nombre — testimonio. Uno por bloque."></textarea></label><label>Preguntas frecuentes y respuestas<textarea name="faq" rows="6" placeholder="P: ¿Incluyen instalación?&#10;R: ..."></textarea></label><label>Garantías, políticas o condiciones generales<textarea name="policies" rows="5"></textarea></label><div class="fields two"><label>Formas de pago aceptadas<input name="paymentMethods"></label><label>Financiamiento o depósitos<input name="financing"></label><label>Tiempo promedio de entrega o instalación<input name="deliveryTime"></label><label>Idiomas de atención<input name="languages"></label></div></div>
+  <div class="form-card materials-card"><h3>Materiales que enviarás por WhatsApp</h3><p class="helper">El portal no adjunta archivos. Marca lo que tienes, descarga el Excel y envíalo junto con estos materiales.</p><div class="materials-grid">
+    <label><input type="checkbox" name="materialChecklist" value="Logo oficial"><span>Logo oficial en PNG transparente, SVG, PDF o AI.</span></label><label><input type="checkbox" name="materialChecklist" value="Fotos originales identificadas"><span>Fotos originales identificadas con el nombre exacto de cada ficha.</span></label><label><input type="checkbox" name="materialChecklist" value="Lista de precios vigente"><span>Lista de precios vigente, PDF, catálogo, menú o documento oficial.</span></label><label><input type="checkbox" name="materialChecklist" value="Manual de marca"><span>Colores, tipografías y manual de marca, si existe.</span></label><label><input type="checkbox" name="materialChecklist" value="Referencias visuales"><span>Links o imágenes de páginas que te gustan.</span></label><label><input type="checkbox" name="materialChecklist" value="Videos"><span>Videos originales disponibles.</span></label><label><input type="checkbox" name="materialChecklist" value="Testimonios"><span>Testimonios autorizados con nombre.</span></label><label><input type="checkbox" name="materialChecklist" value="Documentos legales o políticas"><span>Garantías, políticas, términos u otros documentos.</span></label>
+  </div><label>Notas para relacionar archivos con fichas<textarea name="materialsNotes" rows="4" placeholder="Ej. LED-40-frontal.jpg y LED-40-lateral.jpg corresponden a Pantalla LED de 40 pulgadas."></textarea></label></div>
+  <div class="actions"><button type="button" class="btn ghost prev">Volver</button><button type="button" class="btn primary next">Revisar información</button></div>
+</section>
+<section class="step" data-step="4"><div class="section-head"><span>04</span><div><p class="eyebrow">REVISIÓN FINAL</p><h2>Genera tu Excel maestro</h2><p>El Excel contendrá configuración, contenido, fichas y checklist. Después se abrirá WhatsApp para que adjuntes el Excel y los materiales.</p></div></div><div id="finalSummary" class="summary-card"></div><label class="acceptance"><input type="checkbox" id="dataConsent" required><span>Confirmo que la información escrita es la información oficial disponible para este proyecto y autorizo a ESG Experience a revisarla para definir el alcance.</span></label><div id="submitMessage" class="notice hidden"></div><div class="actions"><button type="button" class="btn ghost prev">Volver</button><button type="submit" id="submitBtn" class="btn primary">Descargar Excel y abrir WhatsApp</button></div></section>
+</form></main>
+<footer><img src="assets/branding/esg-experience-logo-transparent.png" alt="ESG Experience"><p>ESG Experience™ · Dirección, estructura y presencia digital.</p><a href="https://wa.me/17863032835" target="_blank" rel="noopener">WhatsApp +1 786 303 2835</a></footer>
+<script src="https://cdn.jsdelivr.net/npm/xlsx-js-style@1.2.0/dist/xlsx.bundle.js"></script>
+<script type="module" src="js/app.js"></script>
+</body></html>
