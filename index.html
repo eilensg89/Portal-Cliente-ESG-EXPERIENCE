@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="description" content="Portal maestro de información para proyectos web de ESG Experience">
+  <title>ESG Experience | Formulario Maestro de Proyecto</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="ESG Experience"><img src="assets/branding/esg-experience-logo-transparent.png" alt="Logo oficial ESG Experience"><span><strong>ESG EXPERIENCE™</strong><small>Formulario Maestro de Proyecto</small></span></a>
+  <div class="progress-wrap"><span id="progressLabel">Paso 1 de 4</span><div class="progress"><i id="progressBar"></i></div></div>
+</header>
+<main class="shell">
+<section class="hero branded-hero"><img class="hero-seal" src="assets/branding/esg-experience-seal.png" alt="" aria-hidden="true"><p class="eyebrow">ESG EXPERIENCE™ · INFORMACIÓN REAL · ESTRUCTURA CLARA</p><h1>Completa la información que hará posible tu web.</h1><p>Llena únicamente la información oficial que ya tienes. ESG Experience organiza la arquitectura, el orden, las categorías, el SEO y la presentación final.</p><p class="brand-line">Completa lo que sabes. ESG estructura lo demás.</p></section>
+<form id="portalForm" novalidate>
+<section class="step active" data-step="1" tabindex="-1">
+  <div class="section-head"><span>01</span><div><p class="eyebrow">COTIZACIÓN INICIAL</p><h2>Selecciona la arquitectura</h2><p>Elige la estructura que corresponde al proyecto.</p></div></div>
+  <div class="choice-grid project-grid">
+    <label class="choice-card"><input type="radio" name="projectType" value="informativa" required><span class="choice-check"></span><span class="tag">WEB INFORMATIVA</span><h3>Información, servicios y contacto</h3><p>Para presentar el negocio mediante fichas independientes de servicios, soluciones o productos destacados.</p><strong>$150</strong></label>
+    <label class="choice-card"><input type="radio" name="projectType" value="catalogo" required><span class="choice-check"></span><span class="tag">WEB CATÁLOGO</span><h3>Categorías, subcategorías y productos</h3><p>Para organizar una colección completa por categorías, con subcategorías opcionales y productos dentro de cada grupo.</p><strong>Desde $350</strong></label>
+  </div>
+  <div id="catalogQuestions" class="panel hidden"><h3>Dimensión aproximada</h3><div class="fields two"><label>¿Cuántos productos deseas mostrar?<input type="number" min="0" name="catalogItems" placeholder="Ej. 25"></label><label>¿Cuántas categorías imaginas?<input type="number" min="0" name="catalogCategories" placeholder="Ej. 5"></label></div><p id="catalogWarning" class="notice warning hidden">Este proyecto requiere evaluación personalizada antes de confirmar el precio final.</p></div>
+  <div class="section-head compact"><span>+</span><div><p class="eyebrow">MÓDULOS ADICIONALES</p><h2>Personaliza el proyecto</h2></div></div><div id="modulesGrid" class="module-grid"></div>
+  <label class="webcare-card"><input type="checkbox" name="webcare" value="25"><span class="choice-check"></span><div><p class="eyebrow">MANTENIMIENTO OPCIONAL</p><h3>ESG WebCare</h3><p>Soporte y mantenimiento recurrente.</p></div><strong>$25<small>/mes</small></strong></label>
+  <aside class="live-total"><div><small>INVERSIÓN INICIAL ESTIMADA</small><strong id="liveTotal">$0</strong></div><div><small>COSTO MENSUAL</small><strong id="monthlyTotal">$0</strong></div></aside>
+  <div class="actions"><span></span><button type="button" class="btn primary next">Revisar cotización</button></div>
+</section>
+<section class="step" data-step="2" tabindex="-1">
+  <div class="section-head"><span>02</span><div><p class="eyebrow">RESUMEN</p><h2>Revisa tu selección</h2><p>El precio definitivo se confirma después de revisar la información y los materiales.</p></div></div>
+  <div id="quoteSummary" class="summary-card"></div><p class="notice">Esta es una estimación inicial. El alcance final puede cambiar según cantidad de contenido, integraciones, idiomas y materiales.</p>
+  <label class="acceptance"><input type="checkbox" id="quoteAccepted"><span>Confirmo que revisé la cotización estimada y deseo continuar.</span></label>
+  <div class="actions"><button type="button" class="btn ghost prev">Volver a la cotización</button><button type="button" id="acceptQuote" class="btn primary" disabled>Completar información</button></div>
+</section>
+<section class="step" data-step="3" tabindex="-1">
+  <div class="section-head"><span>03</span><div><p class="eyebrow">FORMULARIO MAESTRO</p><h2>Datos oficiales del negocio</h2><p>Escribe cada dato como debe aparecer públicamente.</p></div></div>
+  <div class="form-card"><h3>Responsable y contacto</h3><div class="fields two"><label>Nombre completo del responsable *<input name="clientName" required></label><label>Correo de contacto<input type="email" name="clientEmail"></label><label>WhatsApp principal con código de país *<input name="clientPhone" required placeholder="Ej. +1 786 000 0000"></label><label>WhatsApp visible al público<input name="publicWhatsapp" placeholder="Si es diferente"></label></div></div>
+  <div class="form-card"><h3>Marca y presentación</h3><div class="fields two"><label>Nombre público del negocio *<input name="businessName" required></label><label>Eslogan o lema<input name="tagline"></label><label>Tipo de negocio *<input name="businessType" required></label><label>Moneda que utiliza<input name="currency" value="$"></label><label>Ciudad / sede principal<input name="city"></label><label>Área o ciudades donde ofrece servicio<input name="serviceArea"></label></div><label>Descripción oficial del negocio *<textarea name="businessDescription" required rows="5"></textarea></label><label>Objetivo principal de la web *<textarea name="websiteGoal" required rows="3"></textarea></label><label>Historia breve o “Sobre nosotros”<textarea name="aboutText" rows="4"></textarea></label><label>Diferenciadores principales<textarea name="differentiators" rows="4" placeholder="Uno por línea"></textarea></label></div>
+  <div class="form-card"><h3>Contacto público y presencia digital</h3><div class="fields two"><label>Instagram<input name="instagram"></label><label>Facebook<input name="facebook"></label><label>TikTok<input name="tiktok"></label><label>Canal o grupo de WhatsApp<input name="whatsappChannel"></label><label>Sitio web actual<input name="currentWebsite"></label><label>Correo público<input name="publicEmail"></label><label>Dirección física<input name="address"></label><label>Horario de atención<input name="hours"></label></div></div>
+  <div class="form-card"><h3>Identidad visual</h3><div class="fields two"><label>¿Tiene logo?<select name="hasLogo"><option value="">Selecciona</option><option>Sí, listo para enviar</option><option>No</option><option>Necesito ayuda</option></select></label><label>Nombre exacto del archivo del logo<input name="logoFileName"></label><label>Colores oficiales<input name="brandColors"></label><label>Tipografías oficiales<input name="brandFonts"></label><label>Estilo visual deseado<input name="desiredStyle"></label><label>Elementos que NO desea ver<input name="avoidStyle"></label></div><label>Links o marcas de referencia<textarea name="references" rows="4"></textarea></label></div>
+  <div class="form-card"><h3>Contenido principal de la página</h3><label>Título principal del banner *<input name="heroTitle" required></label><label>Texto de apoyo del banner<textarea name="heroText" rows="3"></textarea></label><div class="fields two"><label>Texto del botón principal<input name="heroButton"></label><label>Destino del botón<select name="heroButtonDestination"><option>WhatsApp</option><option>Sección de servicios</option><option>Formulario</option><option>Otro enlace</option></select></label></div><label>Banner promocional o anuncio especial<textarea name="promoBanner" rows="3"></textarea></label><div class="fields two"><label>Texto del botón promocional<input name="promoButton"></label><label>Destino del botón promocional<input name="promoDestination"></label></div></div>
+  <div class="form-card hidden" id="customFieldsBlock"><h3>Información adicional</h3><div id="customBusinessFields" class="fields two"></div></div>
+  <div class="form-card" id="contentBuilder"><div class="split-title"><div><h3 id="builderTitle">Contenido de la web</h3><p id="builderHelp" class="helper"></p></div></div><label>Nombre público de esta sección *<input name="catalogItemLabel" required placeholder="Ej. Servicios, Catálogo, Colecciones"></label><div id="informativeBuilder" class="hidden"></div><div id="catalogBuilder" class="hidden"></div></div>
+  <div class="form-card"><h3>Confianza y operación</h3><label>Testimonios o reseñas autorizadas<textarea name="testimonials" rows="4"></textarea></label><label>Preguntas frecuentes y respuestas<textarea name="faq" rows="5"></textarea></label><label>Garantías, políticas o condiciones generales<textarea name="policies" rows="4"></textarea></label><div class="fields two"><label>Formas de pago aceptadas<input name="paymentMethods"></label><label>Financiamiento o depósitos<input name="financing"></label><label>Tiempo promedio de entrega o instalación<input name="deliveryTime"></label><label>Idiomas de atención<input name="languages"></label></div></div>
+  <div class="form-card"><h3>Materiales disponibles</h3><div id="materialsChecklist" class="materials-grid"></div><label>Notas para relacionar archivos con fichas<textarea name="materialsNotes" rows="4"></textarea></label></div>
+  <div class="actions"><button type="button" class="btn ghost prev">Volver al resumen</button><button type="button" class="btn primary next">Revisar información</button></div>
+</section>
+<section class="step" data-step="4" tabindex="-1">
+  <div class="section-head"><span>04</span><div><p class="eyebrow">REVISIÓN FINAL</p><h2>Prepara tu proyecto</h2><p>Primero descargarás el Excel maestro. Después se abrirá WhatsApp para que adjuntes el Excel y los materiales disponibles.</p></div></div>
+  <div id="finalSummary" class="summary-card"></div><label class="acceptance"><input type="checkbox" id="dataConsent" required><span>Confirmo que esta es la información oficial disponible para el proyecto y autorizo a ESG Experience a revisarla.</span></label><div id="submitMessage" class="notice hidden"></div>
+  <div class="actions"><button type="button" class="btn ghost prev">Volver al formulario</button><button type="submit" id="submitBtn" class="btn primary">Preparar proyecto</button></div>
+</section>
+</form>
+</main>
+<div id="downloadModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="downloadTitle"><div class="modal-card"><button type="button" class="modal-close" aria-label="Cerrar">×</button><p class="eyebrow">ANTES DE DESCARGAR</p><h2 id="downloadTitle">¿Dónde encontrarás el Excel?</h2><div class="device-grid"><div><strong>Android</strong><p>Archivos o Mis archivos → Descargas.</p></div><div><strong>iPhone</strong><p>Archivos → Descargas o iCloud Drive → Downloads.</p></div><div><strong>Computadora</strong><p>Carpeta Descargas del navegador.</p></div></div><p class="notice soft">Después de la descarga se abrirá WhatsApp. Debes adjuntar manualmente el Excel, el logo, las fotografías, los documentos y las referencias.</p><button type="button" id="confirmDownload" class="btn primary">Entendido, descargar Excel</button></div></div>
+<footer><img src="assets/branding/esg-experience-seal.png" alt="Sello ESG Experience"><p>ESG Experience™ · <a href="https://wa.me/17863032835">+1 786 303 2835</a></p></footer>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script><script type="module" src="js/app.js"></script>
+</body></html>

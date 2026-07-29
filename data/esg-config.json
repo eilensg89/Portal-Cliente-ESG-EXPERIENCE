@@ -1,0 +1,20 @@
+{
+  "sistema": {"nombre":"ESG Experience Client Portal","version":"2.3"},
+  "whatsapp": {"numero":"17863032835","visible":"+1 786 303 2835"},
+  "webcare": {"activo":true,"precioMensual":25},
+  "catalogo": {"referenciaItems":30,"referenciaCategorias":5},
+  "proyectos": {
+    "informativa":{"nombre":"Web Informativa","precio":150,"descripcion":"Información, servicios, banners, confianza y contacto por WhatsApp."},
+    "catalogo":{"nombre":"Web con Catálogo Inteligente","precio":350,"descripcion":"Categorías, subcategorías, filtros y fichas individuales."}
+  },
+  "modulos": [
+    {"id":"infrastructure","nombre":"Infraestructura propia","precio":50,"descripcion":"GitHub, Vercel, dominio, DNS, HTTPS y publicación. Dominio no incluido."},
+    {"id":"analytics","nombre":"Google Analytics + Search Console + Indexación","precio":50,"descripcion":"GA4, Search Console, sitemap, robots.txt, indexación inicial y eventos básicos."},
+    {"id":"booking","nombre":"Reservas","precio":50,"descripcion":"Calendly, Square Appointments, Google Calendar u otros compatibles."},
+    {"id":"bilingual","nombre":"Sitio bilingüe","precio":25,"descripcion":"Estructura y navegación para dos idiomas."},
+    {"id":"seo","nombre":"SEO profesional","precio":100,"descripcion":"Optimización profesional de contenido y estructura."},
+    {"id":"googleBusiness","nombre":"Google Business Profile","precio":100,"descripcion":"Configuración u optimización de la presencia local en Google."},
+    {"id":"professionalForm","nombre":"Formulario profesional","precio":100,"descripcion":"Formulario ampliado según necesidades del negocio."},
+    {"id":"payments","nombre":"Integración de pagos","precio":100,"descripcion":"Stripe, Square o PayPal. No incluye comisiones del procesador."}
+  ]
+}
