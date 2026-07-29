@@ -451,16 +451,17 @@
       "activo": true
     }
   ],
-  "camposFicha": [
-    {
-      "clave": "section",
-      "etiqueta": "Sección de la página",
-      "tipo": "text",
-      "obligatorio": true,
-      "placeholder": "Servicios",
-      "ayuda": "Agrupa tarjetas en bloques",
-      "activo": true
-    },
+  "materiales": [
+    "Logo oficial",
+    "Fotos originales identificadas",
+    "Lista de precios vigente",
+    "Manual de marca",
+    "Referencias visuales",
+    "Videos",
+    "Testimonios",
+    "Documentos legales o políticas"
+  ],
+  "camposServicio": [
     {
       "clave": "code",
       "etiqueta": "Código interno",
@@ -480,26 +481,8 @@
       "activo": true
     },
     {
-      "clave": "category",
-      "etiqueta": "Categoría",
-      "tipo": "text",
-      "obligatorio": true,
-      "placeholder": "Pantallas interiores",
-      "ayuda": "",
-      "activo": true
-    },
-    {
-      "clave": "subcategory",
-      "etiqueta": "Subcategoría",
-      "tipo": "text",
-      "obligatorio": false,
-      "placeholder": "Residencial",
-      "ayuda": "",
-      "activo": true
-    },
-    {
       "clave": "name",
-      "etiqueta": "Título oficial",
+      "etiqueta": "Nombre oficial del servicio o producto",
       "tipo": "text",
       "obligatorio": true,
       "placeholder": "Pantalla LED de 40 pulgadas",
@@ -607,11 +590,11 @@
     },
     {
       "clave": "images",
-      "etiqueta": "Nombres exactos de las fotos",
+      "etiqueta": "Nombres exactos de las fotos de este elemento",
       "tipo": "textarea",
       "obligatorio": false,
       "placeholder": "",
-      "ayuda": "Una por línea",
+      "ayuda": "Una por línea. Ej.: pantalon-negro-01.jpg",
       "activo": true
     },
     {
@@ -624,14 +607,226 @@
       "activo": true
     }
   ],
-  "materiales": [
-    "Logo oficial",
-    "Fotos originales identificadas",
-    "Lista de precios vigente",
-    "Manual de marca",
-    "Referencias visuales",
-    "Videos",
-    "Testimonios",
-    "Documentos legales o políticas"
+  "camposCategoria": [
+    {
+      "clave": "name",
+      "etiqueta": "Nombre de la categoría",
+      "tipo": "text",
+      "obligatorio": true,
+      "placeholder": "Ej. Calzado, Ropa, Accesorios",
+      "ayuda": "Usa el nombre general que verá el cliente",
+      "activo": true
+    },
+    {
+      "clave": "description",
+      "etiqueta": "Descripción de la categoría",
+      "tipo": "textarea",
+      "obligatorio": false,
+      "placeholder": "Qué reúne esta categoría",
+      "ayuda": "Opcional",
+      "activo": true
+    },
+    {
+      "clave": "image",
+      "etiqueta": "Nombre de la imagen representativa",
+      "tipo": "text",
+      "obligatorio": false,
+      "placeholder": "Ej. categoria-calzado.jpg",
+      "ayuda": "Escribe el nombre exacto del archivo que enviarás por WhatsApp",
+      "activo": true
+    },
+    {
+      "clave": "notes",
+      "etiqueta": "Observaciones de la categoría para ESG",
+      "tipo": "textarea",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "Opcional",
+      "activo": true
+    }
+  ],
+  "camposSubcategoria": [
+    {
+      "clave": "name",
+      "etiqueta": "Nombre de la subcategoría",
+      "tipo": "text",
+      "obligatorio": true,
+      "placeholder": "Ej. Zapatos de tacón, Sandalias",
+      "ayuda": "Debe pertenecer a la categoría que estás completando",
+      "activo": true
+    },
+    {
+      "clave": "description",
+      "etiqueta": "Descripción de la subcategoría",
+      "tipo": "textarea",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "Opcional",
+      "activo": true
+    },
+    {
+      "clave": "image",
+      "etiqueta": "Nombre de la imagen representativa",
+      "tipo": "text",
+      "obligatorio": false,
+      "placeholder": "Ej. zapatos-tacon.jpg",
+      "ayuda": "Opcional",
+      "activo": true
+    },
+    {
+      "clave": "notes",
+      "etiqueta": "Observaciones de la subcategoría para ESG",
+      "tipo": "textarea",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "Opcional",
+      "activo": true
+    }
+  ],
+  "camposProducto": [
+    {
+      "clave": "code",
+      "etiqueta": "Código interno",
+      "tipo": "text",
+      "obligatorio": false,
+      "placeholder": "LED-040",
+      "ayuda": "",
+      "activo": true
+    },
+    {
+      "clave": "status",
+      "etiqueta": "Estado",
+      "tipo": "select",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "Activo|Próximamente|Oculto",
+      "activo": true
+    },
+    {
+      "clave": "name",
+      "etiqueta": "Nombre oficial del servicio o producto",
+      "tipo": "text",
+      "obligatorio": true,
+      "placeholder": "Pantalla LED de 40 pulgadas",
+      "ayuda": "",
+      "activo": true
+    },
+    {
+      "clave": "price",
+      "etiqueta": "Precio o desde",
+      "tipo": "text",
+      "obligatorio": false,
+      "placeholder": "Desde $499 / Cotización",
+      "ayuda": "",
+      "activo": true
+    },
+    {
+      "clave": "variants",
+      "etiqueta": "Variantes, colores o modelos",
+      "tipo": "text",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "",
+      "activo": true
+    },
+    {
+      "clave": "featured",
+      "etiqueta": "¿Destacado?",
+      "tipo": "select",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "No|Sí",
+      "activo": true
+    },
+    {
+      "clave": "description",
+      "etiqueta": "Descripción completa",
+      "tipo": "textarea",
+      "obligatorio": true,
+      "placeholder": "",
+      "ayuda": "",
+      "activo": true
+    },
+    {
+      "clave": "includes",
+      "etiqueta": "Qué incluye",
+      "tipo": "textarea",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "",
+      "activo": true
+    },
+    {
+      "clave": "specs",
+      "etiqueta": "Especificaciones, medidas o duración",
+      "tipo": "textarea",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "",
+      "activo": true
+    },
+    {
+      "clave": "conditions",
+      "etiqueta": "Condiciones importantes",
+      "tipo": "textarea",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "",
+      "activo": true
+    },
+    {
+      "clave": "warranty",
+      "etiqueta": "Garantía",
+      "tipo": "text",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "",
+      "activo": true
+    },
+    {
+      "clave": "delivery",
+      "etiqueta": "Tiempo de entrega o instalación",
+      "tipo": "text",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "",
+      "activo": true
+    },
+    {
+      "clave": "keywords",
+      "etiqueta": "Palabras clave",
+      "tipo": "text",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "Separadas por comas",
+      "activo": true
+    },
+    {
+      "clave": "cta",
+      "etiqueta": "Llamada a la acción",
+      "tipo": "text",
+      "obligatorio": false,
+      "placeholder": "Solicitar cotización",
+      "ayuda": "",
+      "activo": true
+    },
+    {
+      "clave": "images",
+      "etiqueta": "Nombres exactos de las fotos de este elemento",
+      "tipo": "textarea",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "Una por línea. Ej.: pantalon-negro-01.jpg",
+      "activo": true
+    },
+    {
+      "clave": "notes",
+      "etiqueta": "Observaciones para ESG",
+      "tipo": "textarea",
+      "obligatorio": false,
+      "placeholder": "",
+      "ayuda": "",
+      "activo": true
+    }
   ]
 }
