@@ -1,0 +1,22 @@
+{
+  "sistema": {
+    "nombre": "ESG Experience · Formulario de Catálogo",
+    "version": "1.0"
+  },
+  "whatsapp": {
+    "numero": "17863032835",
+    "visible": "+1 786 303 2835"
+  },
+  "catalogo": {
+    "tipos": {
+      "whatsapp": {
+        "nombre": "Catálogo web + WhatsApp",
+        "descripcion": "Catálogo organizado por categorías, subcategorías y fichas de producto para consulta o pedido por WhatsApp."
+      },
+      "shopify": {
+        "nombre": "Catálogo Shopify",
+        "descripcion": "Información de productos, variantes, inventario, imágenes y datos necesarios para preparar una tienda Shopify."
+      }
+    }
+  }
+}

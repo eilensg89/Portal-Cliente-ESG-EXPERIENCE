@@ -1,0 +1,6 @@
+{
+  "name": "esg-catalogo-shopify-intake",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Formulario ESG Experience para recopilar catálogos Shopify o catálogos web + WhatsApp y exportar Excel maestro"
+}

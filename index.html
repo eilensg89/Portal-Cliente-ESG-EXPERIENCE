@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="theme-color" content="#C8B49A">
+  <title>ESG Experience · Formulario de Catálogo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<header class="topbar">
+  <a class="brand" href="#" aria-label="ESG Experience">
+    <img src="assets/branding/esg-experience-logo-transparent.png" alt="ESG Experience">
+    <span><strong>ESG EXPERIENCE™</strong><small>Formulario de catálogo · Shopify / WhatsApp</small></span>
+  </a>
+  <div class="progress-wrap"><span id="progressLabel">Paso 1 de 3</span><div class="progress"><i id="progressBar"></i></div></div>
+</header>
+<main class="shell">
+  <section class="hero">
+    <img class="hero-seal" src="assets/branding/esg-experience-seal.png" alt="">
+    <p class="eyebrow">PORTAL DE INFORMACIÓN DE PRODUCTOS</p>
+    <h1>Organiza tu catálogo una sola vez.</h1>
+    <p>Completa categorías, subcategorías, productos, imágenes y variantes. Al finalizar recibirás un Excel maestro con toda la información ordenada para que ESG Experience pueda construir tu catálogo web o preparar tu tienda Shopify.</p>
+    <p class="brand-line">Sin precios de servicio. Solo la información real de tu catálogo.</p>
+  </section>
+
+  <form id="catalogForm" novalidate>
+    <section class="step" data-step="1" tabindex="-1">
+      <div class="section-head"><span>01</span><div><p class="eyebrow">DESTINO DEL CATÁLOGO</p><h2>¿Dónde vas a utilizar estos productos?</h2><p>Selecciona una opción. Esto solo cambia los datos que necesitamos pedirte.</p></div></div>
+      <div class="choice-grid">
+        <label class="choice-card"><input type="radio" name="catalogType" value="whatsapp" required><span class="choice-check"></span><span class="tag">CATÁLOGO WEB</span><h3>Catálogo + WhatsApp</h3><p>Categorías, subcategorías y fichas de productos para mostrar información y llevar consultas o pedidos a WhatsApp.</p><strong>Información comercial</strong></label>
+        <label class="choice-card"><input type="radio" name="catalogType" value="shopify" required><span class="choice-check"></span><span class="tag">E-COMMERCE</span><h3>Shopify</h3><p>Además del catálogo, recopilaremos variantes, SKU, inventario, envío, impuestos, SEO e información necesaria para preparar la carga de productos.</p><strong>Información de tienda</strong></label>
+      </div>
+      <div class="actions"><span></span><button type="button" class="btn primary next">Comenzar formulario</button></div>
+    </section>
+
+    <section class="step" data-step="2" tabindex="-1">
+      <div class="section-head"><span>02</span><div><p class="eyebrow">INFORMACIÓN MAESTRA</p><h2>Negocio y catálogo</h2><p>Escribe la información como debe quedar registrada. Puedes añadir todas las categorías y productos que necesites.</p></div></div>
+
+      <div class="form-card"><h3>Responsable y marca</h3><div id="businessFields" class="fields two"></div></div>
+
+      <div id="shopifyGlobalCard" class="form-card hidden">
+        <h3>Configuración general de Shopify</h3>
+        <p class="helper">Estos datos ayudan a preparar correctamente productos, variantes e inventario. No sustituyen la configuración fiscal o legal de tu tienda.</p>
+        <div id="shopifyGlobalFields" class="fields two"></div>
+        <div class="notice soft"><strong>Referencia Shopify:</strong> un producto puede tener hasta 3 opciones y actualmente hasta 2,048 variantes. Si manejas inventario en varias ubicaciones, el inventario se prepara en una hoja separada del Excel.</div>
+      </div>
+
+      <div class="form-card">
+        <div class="split-title"><div><h3>Catálogo por categorías</h3><p class="helper">Cada categoría puede contener productos directamente o dividirse en subcategorías.</p></div></div>
+        <div class="catalog-toolbar"><label>Buscar dentro del formulario<input id="catalogSearch" type="search" placeholder="Escribe nombre, código o categoría"></label><small>Útil cuando tengas muchos productos.</small></div>
+        <div id="catalogBuilder"></div>
+      </div>
+
+      <div class="form-card"><h3>Materiales que vas a enviar</h3><div id="materialsChecklist" class="materials-grid"></div><label>Notas para relacionar archivos con productos<textarea name="materialsNotes" rows="4" placeholder="Ej. Las fotos CAMISA-001 corresponden al producto Camisa Lino Beige."></textarea></label></div>
+
+      <div class="actions"><button type="button" class="btn ghost prev">Volver</button><button type="button" class="btn primary next">Revisar catálogo</button></div>
+    </section>
+
+    <section class="step" data-step="3" tabindex="-1">
+      <div class="section-head"><span>03</span><div><p class="eyebrow">REVISIÓN Y EXPORTACIÓN</p><h2>Prepara tu Excel maestro</h2><p>Revisa el resumen. Al continuar se descargará un Excel con el negocio, categorías, productos y, si elegiste Shopify, las hojas de variantes, inventario y preparación de importación.</p></div></div>
+      <div id="finalSummary" class="summary-card"></div>
+      <label class="acceptance"><input type="checkbox" id="dataConsent"><span>Confirmo que la información ingresada es la información disponible y autorizo a ESG Experience a revisarla y utilizarla para preparar mi catálogo.</span></label>
+      <div id="submitMessage" class="notice hidden"></div>
+      <div class="actions"><button type="button" class="btn ghost prev">Volver al catálogo</button><button type="submit" id="submitBtn" class="btn primary">Descargar Excel y continuar</button></div>
+    </section>
+  </form>
+</main>
+
+<div id="downloadModal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="downloadTitle">
+  <div class="modal-card"><button type="button" class="modal-close" aria-label="Cerrar">×</button><p class="eyebrow">ANTES DE DESCARGAR</p><h2 id="downloadTitle">Tu Excel será el mapa del catálogo</h2><div class="device-grid"><div><strong>Android</strong><p>Archivos / Mis archivos → Descargas.</p></div><div><strong>iPhone</strong><p>Archivos → Descargas o iCloud Drive → Downloads.</p></div><div><strong>Computadora</strong><p>Carpeta Descargas del navegador.</p></div></div><p class="notice soft">Después se abrirá WhatsApp. Adjunta manualmente el Excel y los archivos originales de productos. Si elegiste Shopify y todavía no tienes URLs públicas para las imágenes, envía las fotos: ESG las preparará antes de la importación.</p><button type="button" id="confirmDownload" class="btn primary">Entendido, descargar Excel</button></div>
+</div>
+<footer><img src="assets/branding/esg-experience-seal.png" alt="Sello ESG Experience"><p>ESG Experience™</p></footer>
+<script src="https://cdn.jsdelivr.net/npm/xlsx@0.18.5/dist/xlsx.full.min.js"></script>
+<script type="module" src="js/app.js"></script>
+</body>
+</html>
